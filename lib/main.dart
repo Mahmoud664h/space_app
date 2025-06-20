@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/home_screen.dart';
+import 'package:space_app/login_screen.dart';
+import 'package:space_app/planet_detail.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +12,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: LoginScreen.loginScreen,
+      routes: {
+        LoginScreen.loginScreen: (context) => const LoginScreen(),
+        HomeScreen.homeScreen: (context) => HomeScreen(),
+        PlanetDetail.planetDetail: (context) => PlanetDetail(),
+      },
     );
   }
 }
